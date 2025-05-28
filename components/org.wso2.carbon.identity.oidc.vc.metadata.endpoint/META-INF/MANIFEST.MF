@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven 3.6.3
+Built-By: piraveena
+Build-Jdk: 11.0.22
+Specification-Title: WSO2 Carbon - OIDC4VCI Component
+Specification-Version: 1.0.0-SNAPSHOT
+Specification-Vendor: WSO2
+Implementation-Title: WSO2 Carbon - OIDC4VCI Component
+Implementation-Version: 1.0.0-SNAPSHOT
+Implementation-Vendor-Id: org.wso2.carbon.identity.oidc.vc
+Implementation-Vendor: WSO2
+

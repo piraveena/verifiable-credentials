@@ -154,21 +154,20 @@
                         <Import-Package>
                             org.osgi.framework; version="${osgi.framework.imp.pkg.version.range}",
                             org.osgi.service.http; version="${osgi.service.http.imp.pkg.version.range}",
-                            org.apache.felix.scr; version = "${apache.felix.scr.ds.annotations.version}",
-                            org.osgi.service.component; version="${osgi.service.component.imp.pkg.version.range}"
+<!--                            org.apache.felix.scr; version = "${apache.felix.scr.ds.annotations.version}",-->
+                            org.osgi.service.component; version="${osgi.service.component.imp.pkg.version.range}",
 
                             org.apache.commons.logging; version="[1.2.0,2.0.0)",
 
                             org.json; version="[0.0.0,100.0.0)",
-
 
                             org.json.simple,
                             org.json.simple.parser,
 
                             com.fasterxml.jackson.core; version="[2.15.0,3.0.0)",
                             com.fasterxml.jackson.databind; version="[2.15.0,3.0.0)",
-                            javax.servlet; version="${imp.pkg.version.javax.servlet}"
-                            javax.servlet.http; version="${imp.pkg.version.javax.servlet}"
+                            javax.servlet; version="${imp.pkg.version.javax.servlet}",
+                            javax.servlet.http; version="${imp.pkg.version.javax.servlet}",
                             javax.ws.rs; version="[2.1.0,3.0.0)",
                             javax.ws.rs.core; version="[2.1.0,3.0.0)",
                             org.wso2.carbon.core; version="[4.9.0,5.0.0)",

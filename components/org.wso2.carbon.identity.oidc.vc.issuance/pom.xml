@@ -69,15 +69,15 @@
 
                             org.osgi.framework; version="${osgi.framework.imp.pkg.version.range}",
                             org.osgi.service.http; version="${osgi.service.http.imp.pkg.version.range}",
-                            org.apache.felix.scr; version = "${apache.felix.scr.ds.annotations.version}",
-                            org.osgi.service.component; version="${osgi.service.component.imp.pkg.version.range}"
+<!--                            org.apache.felix.scr; version = "${apache.felix.scr.ds.annotations.version}",-->
+                            org.osgi.service.component; version="${osgi.service.component.imp.pkg.version.range}",
 
-                            org.wso2.carbon.identity.base; ,
-                            org.wso2.carbon.base; ,
-                            org.apache.commons.logging; ,
-                            javax.servlet; ",
-                            javax.servlet.descriptor; ,
-                            javax.servlet.http;,
+                            org.wso2.carbon.identity.base,
+                            org.wso2.carbon.base,
+                            org.apache.commons.logging,
+                            javax.servlet,
+                            javax.servlet.descriptor,
+                            javax.servlet.http
                         </Import-Package>
                         <Export-Package>
                             org.wso2.carbon.identity.oidc.vc.*;version="${project.version}",

@@ -32,7 +32,7 @@
 
   <modules>
     <module>components/org.wso2.carbon.identity.oidc.vc.issuance</module>
-    <module>components/org.wso2.carbon.identity.oidc.vc.metadata.endpoint</module>
+    <module>components/org.wso2.carbon.identity.oidc.vc.endpoint</module>
   </modules>
 
   <profiles>
@@ -103,7 +103,7 @@
       </dependency>
       <dependency>
         <groupId>org.wso2.carbon.identity.oidc.vc</groupId>
-        <artifactId>org.wso2.carbon.identity.oidc4.vc.metadata.endpoint</artifactId>
+        <artifactId>org.wso2.carbon.identity.oidc.vc.endpoint</artifactId>
         <version>${project.version}</version>
       </dependency>
     </dependencies>
@@ -148,8 +148,8 @@
         <version>2.3.1</version>
         <configuration>
           <encoding>UTF-8</encoding>
-          <source>11</source>
-          <target>11</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
     </plugins>
@@ -171,12 +171,32 @@
         <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
-          <version>5.1.9</version>
+          <version>${maven.bundle.plugin.version}</version>
           <extensions>true</extensions>
           <configuration>
             <obrRepository>NONE</obrRepository>
+            <instructions>
+              <SCM-Revision>${buildNumber}</SCM-Revision>
+            </instructions>
           </configuration>
         </plugin>
+<!--        <plugin>-->
+<!--          <groupId>org.codehaus.mojo</groupId>-->
+<!--          <artifactId>buildnumber-maven-plugin</artifactId>-->
+<!--          <version>${maven.buildnumber.plugin.version}</version>-->
+<!--          <executions>-->
+<!--            <execution>-->
+<!--              <phase>validate</phase>-->
+<!--              <goals>-->
+<!--                <goal>create</goal>-->
+<!--              </goals>-->
+<!--            </execution>-->
+<!--          </executions>-->
+<!--          <configuration>-->
+<!--            <doCheck>false</doCheck>-->
+<!--            <doUpdate>false</doUpdate>-->
+<!--          </configuration>-->
+<!--        </plugin>-->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
@@ -287,10 +307,14 @@
 
     <oidc.vc.imp.pkg.version.range>[0.0.0, 8.0.0)</oidc.vc.imp.pkg.version.range>
 
+    <import.package.version.commons.logging>[1.2.0,2.0.0)</import.package.version.commons.logging>
+
     <!-- Plugin versions -->
     <maven.surefire.plugin.version>3.0.0-M7</maven.surefire.plugin.version>
     <maven.checkstyle.plugin.version>3.1.2</maven.checkstyle.plugin.version>
     <spotbugs.maven.plugin.version>4.7.2.0</spotbugs.maven.plugin.version>
+    <maven.bundle.plugin.version>3.2.0</maven.bundle.plugin.version>
+    <maven.buildnumber.plugin.version>1.4</maven.buildnumber.plugin.version>
 
     <!-- OSGi/Equinox dependency version -->
     <equinox.javax.servlet.version>3.0.0.v201112011016</equinox.javax.servlet.version>
@@ -304,6 +328,10 @@
 
     <json.wso2.version>3.0.0.wso2v4</json.wso2.version>
     <json.wso2.version.range>[3.0.0.wso2v1, 4.0.0)</json.wso2.version.range>
+    <imp.pkg.version.javax.servlet>[2.6.0, 3.0.0)</imp.pkg.version.javax.servlet>
+
+    <imp.pkg.version.javax.servlet>[2.6.0, 3.0.0)</imp.pkg.version.javax.servlet>
+
     <!-- Dependency versions -->
     <identity.inbound.auth.oauth.version>7.0.256</identity.inbound.auth.oauth.version>
     <identity.inbound.auth.oauth.imp.pkg.version.range>[7.0.0, 8.0.0)</identity.inbound.auth.oauth.imp.pkg.version.range>

@@ -18,29 +18,46 @@
 
 package org.wso2.carbon.identity.oidc.vc.endpoint.internal;
 
+import org.eclipse.equinox.http.helper.ContextPathServletAdaptor;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
+import org.osgi.service.http.HttpService;
+import org.wso2.carbon.identity.oidc.vc.endpoint.servlet.MetadataEndpointServlet;
+
+import javax.servlet.Servlet;
 
 /**
  * OSGi Service Component for OIDC4VCI metadata endpoint.
  * This component registers the metadata endpoint servlet and manages dependencies.
  */
-@Component(
-    name = "org.wso2.carbon.identity.vc.endpoint.component" +
-            "",
-    immediate = true,
-    service = OIDC4VCIWebappServiceComponent.class
-)
+@Component(name = "org.wso2.carbon.identity.vc.endpoint.component" + "", immediate = true, service =
+        OIDC4VCIWebappServiceComponent.class)
 public class OIDC4VCIWebappServiceComponent {
 
 
     @Activate
     protected void activate(ComponentContext componentContext) {
+
         try {
 
-         } catch (Exception e) {
+            HttpService httpService = DataHolder.getInstance().getHttpService();
+
+            Servlet webFingerServlet = new ContextPathServletAdaptor(new MetadataEndpointServlet(),
+                    "/.well-known/openid-credential-issuer");
+            try {
+                httpService.registerServlet("/.well-known/openid-credential-issuer", webFingerServlet, null, null);
+            } catch (Exception e) {
+        
+                String errMsg = "Error when registering Web Finger Servlet via the HttpService.";
+                throw new RuntimeException(errMsg, e);
+            }
+
+        } catch (Exception e) {
         }
     }
 
@@ -49,4 +66,15 @@ public class OIDC4VCIWebappServiceComponent {
 
     }
 
+    @Reference(name = "osgi.http.service", service = HttpService.class, cardinality = ReferenceCardinality.MANDATORY,
+            policy = ReferencePolicy.DYNAMIC, unbind = "unsetHttpService")
+    protected void setHttpService(HttpService httpService) {
+
+        DataHolder.getInstance().setHttpService(httpService);
+    }
+
+    protected void unsetHttpService(HttpService httpService) {
+
+        DataHolder.getInstance().setHttpService(null);
+    }
 }

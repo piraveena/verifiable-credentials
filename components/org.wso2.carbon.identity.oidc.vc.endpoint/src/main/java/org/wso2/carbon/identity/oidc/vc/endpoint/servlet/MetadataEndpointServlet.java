@@ -1,5 +1,8 @@
 package org.wso2.carbon.identity.oidc.vc.endpoint.servlet;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class MetadataEndpointServlet extends HttpServlet {
 
-//    private static final Log LOG = LogFactory.getLog(MetadataEndpointServlet.class);
+    private static final Log LOG = LogFactory.getLog(MetadataEndpointServlet.class);
     private static final String CONTENT_TYPE_JSON = "application/json";
     private static final String TENANT_DOMAIN_PARAM = "tenant";
     private static final String DEFAULT_TENANT = "carbon.super";

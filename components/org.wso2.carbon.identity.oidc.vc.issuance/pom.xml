@@ -61,7 +61,7 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Private-Package>
-<!--                            org.wso2.carbon.identity.oidc.session.internal,-->
+                            org.wso2.carbon.identity.oidc.vc.issuance.internal,
                         </Private-Package>
                         <Import-Package>
                             javax.xml.namespace,
@@ -72,15 +72,18 @@
 <!--                            org.apache.felix.scr; version = "${apache.felix.scr.ds.annotations.version}",-->
                             org.osgi.service.component; version="${osgi.service.component.imp.pkg.version.range}",
 
-                            org.wso2.carbon.identity.base,
-                            org.wso2.carbon.base,
-                            org.apache.commons.logging,
-                            javax.servlet,
-                            javax.servlet.descriptor,
-                            javax.servlet.http
+
+<!--                            org.wso2.carbon.identity.base,-->
+<!--                            org.wso2.carbon.base,-->
+<!--                            org.apache.commons.logging,-->
+<!--                            javax.servlet; version="${imp.pkg.version.javax.servlet}",-->
+<!--                            javax.servlet.http; version="${imp.pkg.version.javax.servlet}",-->
                         </Import-Package>
                         <Export-Package>
-                            org.wso2.carbon.identity.oidc.vc.*;version="${project.version}",
+                            org.wso2.carbon.identity.oidc.vc;version="${project.version}",
+                            org.wso2.carbon.identity.oidc.vc.issuance;version="${project.version}",
+                            org.wso2.carbon.identity.oidc.vc.issuance.impl;version="${project.version}",
+                            org.wso2.carbon.identity.oidc.vc.issuance.metadata;version="${project.version}",
                         </Export-Package>
                         <DynamicImport-Package>*</DynamicImport-Package>
                     </instructions>

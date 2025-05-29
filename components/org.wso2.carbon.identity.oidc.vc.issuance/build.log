@@ -1,0 +1,129 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for org.wso2.carbon.identity.oidc.vc:org.wso2.carbon.identity.oidc.vc.issuance:bundle:1.0.0-SNAPSHOT
+[[1;33mWARNING[m] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ line 89, column 21
+[[1;33mWARNING[m] 'build.plugins.plugin.version' for com.github.spotbugs:spotbugs-maven-plugin is missing. @ line 93, column 21
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36morg.wso2.carbon.identity.oidc.vc:org.wso2.carbon.identity.oidc.vc.issuance[0;1m >--[m
+[[1;34mINFO[m] [1mBuilding WSO2 Carbon - OIDC for Verifiable credential issuance 1.0.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m-------------------------------[ bundle ]-------------------------------[m
+Downloading from wso2-nexus: https://maven.wso2.org/nexus/content/groups/wso2-public/org/apache/maven/plugins/maven-checkstyle-plugin/maven-metadata.xml
+Downloading from wso2.snapshots: https://maven.wso2.org/nexus/content/repositories/snapshots/org/apache/maven/plugins/maven-checkstyle-plugin/maven-metadata.xml
+Downloading from wso2.releases: https://maven.wso2.org/nexus/content/repositories/releases/org/apache/maven/plugins/maven-checkstyle-plugin/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from wso2-nexus: https://maven.wso2.org/nexus/content/groups/wso2-public/org/apache/maven/plugins/maven-checkstyle-plugin/maven-metadata.xml (1.4 kB at 879 B/s)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.6.1:clean[m [1m(default-clean)[m @ [36morg.wso2.carbon.identity.oidc.vc.issuance[0;1m ---[m
+[[1;34mINFO[m] Deleting /Users/piraveena/Documents/Repos/public/oidc4-verifiable-credentials/components/org.wso2.carbon.identity.oidc.vc.issuance/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mincremental-build-plugin:1.3:incremental-build[m [1m(default)[m @ [36morg.wso2.carbon.identity.oidc.vc.issuance[0;1m ---[m
+[[1;34mINFO[m] Verifying module descriptor ...
+[[1;34mINFO[m] Pom descriptor modification detected.
+[[1;34mINFO[m] Deleting /Users/piraveena/Documents/Repos/public/oidc4-verifiable-credentials/components/org.wso2.carbon.identity.oidc.vc.issuance/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-remote-resources-plugin:1.5:process[m [1m(default)[m @ [36morg.wso2.carbon.identity.oidc.vc.issuance[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.7:resources[m [1m(default-resources)[m @ [36morg.wso2.carbon.identity.oidc.vc.issuance[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] Copying 3 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:2.3.1:compile[m [1m(default-compile)[m @ [36morg.wso2.carbon.identity.oidc.vc.issuance[0;1m ---[m
+[[1;34mINFO[m] Compiling 6 source files to /Users/piraveena/Documents/Repos/public/oidc4-verifiable-credentials/components/org.wso2.carbon.identity.oidc.vc.issuance/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.7:testResources[m [1m(default-testResources)[m @ [36morg.wso2.carbon.identity.oidc.vc.issuance[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] skip non existing resourceDirectory /Users/piraveena/Documents/Repos/public/oidc4-verifiable-credentials/components/org.wso2.carbon.identity.oidc.vc.issuance/src/test/resources
+[[1;34mINFO[m] Copying 3 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:2.3.1:testCompile[m [1m(default-testCompile)[m @ [36morg.wso2.carbon.identity.oidc.vc.issuance[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.18:test[m [1m(default-test)[m @ [36morg.wso2.carbon.identity.oidc.vc.issuance[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-bundle-plugin:3.2.0:bundle[m [1m(default-bundle)[m @ [36morg.wso2.carbon.identity.oidc.vc.issuance[0;1m ---[m
+java.lang.NullPointerException
+	at aQute.bnd.header.OSGiHeader.quote(OSGiHeader.java:150)
+	at aQute.bnd.header.Attrs.append(Attrs.java:416)
+	at aQute.bnd.header.Attrs.append(Attrs.java:397)
+	at aQute.bnd.header.Parameters.append(Parameters.java:175)
+	at aQute.bnd.header.Parameters.toString(Parameters.java:164)
+	at aQute.bnd.osgi.Analyzer.calcManifest(Analyzer.java:788)
+	at aQute.bnd.osgi.Builder.build(Builder.java:105)
+	at org.apache.felix.bundleplugin.BundlePlugin.buildOSGiBundle(BundlePlugin.java:972)
+	at org.apache.felix.bundleplugin.BundlePlugin.execute(BundlePlugin.java:470)
+	at org.apache.felix.bundleplugin.BundlePlugin.execute(BundlePlugin.java:387)
+	at org.apache.felix.bundleplugin.BundlePlugin.execute(BundlePlugin.java:378)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:210)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:156)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:957)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:289)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:193)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:282)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:225)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:406)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:347)
+[[1;31mERROR[m] An internal error occurred
+[1;31mjava.lang.IllegalArgumentException[m: [1;31mNull query[m
+    [1mat[m aQute.lib.filter.Filter.<init> ([1mFilter.java:291[m)
+    [1mat[m aQute.lib.filter.Filter.<init> ([1mFilter.java:295[m)
+    [1mat[m aQute.bnd.osgi.Verifier.verifyRequirements ([1mVerifier.java:737[m)
+    [1mat[m aQute.bnd.osgi.Verifier.verify ([1mVerifier.java:537[m)
+    [1mat[m aQute.bnd.osgi.Builder.doVerify ([1mBuilder.java:532[m)
+    [1mat[m aQute.bnd.osgi.Builder.build ([1mBuilder.java:140[m)
+    [1mat[m org.apache.felix.bundleplugin.BundlePlugin.buildOSGiBundle ([1mBundlePlugin.java:972[m)
+    [1mat[m org.apache.felix.bundleplugin.BundlePlugin.execute ([1mBundlePlugin.java:470[m)
+    [1mat[m org.apache.felix.bundleplugin.BundlePlugin.execute ([1mBundlePlugin.java:387[m)
+    [1mat[m org.apache.felix.bundleplugin.BundlePlugin.execute ([1mBundlePlugin.java:378[m)
+    [1mat[m org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo ([1mDefaultBuildPluginManager.java:137[m)
+    [1mat[m org.apache.maven.lifecycle.internal.MojoExecutor.execute ([1mMojoExecutor.java:210[m)
+    [1mat[m org.apache.maven.lifecycle.internal.MojoExecutor.execute ([1mMojoExecutor.java:156[m)
+    [1mat[m org.apache.maven.lifecycle.internal.MojoExecutor.execute ([1mMojoExecutor.java:148[m)
+    [1mat[m org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject ([1mLifecycleModuleBuilder.java:117[m)
+    [1mat[m org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject ([1mLifecycleModuleBuilder.java:81[m)
+    [1mat[m org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build ([1mSingleThreadedBuilder.java:56[m)
+    [1mat[m org.apache.maven.lifecycle.internal.LifecycleStarter.execute ([1mLifecycleStarter.java:128[m)
+    [1mat[m org.apache.maven.DefaultMaven.doExecute ([1mDefaultMaven.java:305[m)
+    [1mat[m org.apache.maven.DefaultMaven.doExecute ([1mDefaultMaven.java:192[m)
+    [1mat[m org.apache.maven.DefaultMaven.execute ([1mDefaultMaven.java:105[m)
+    [1mat[m org.apache.maven.cli.MavenCli.execute ([1mMavenCli.java:957[m)
+    [1mat[m org.apache.maven.cli.MavenCli.doMain ([1mMavenCli.java:289[m)
+    [1mat[m org.apache.maven.cli.MavenCli.main ([1mMavenCli.java:193[m)
+    [1mat[m jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 ([1mNative Method[m)
+    [1mat[m jdk.internal.reflect.NativeMethodAccessorImpl.invoke ([1mNativeMethodAccessorImpl.java:62[m)
+    [1mat[m jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke ([1mDelegatingMethodAccessorImpl.java:43[m)
+    [1mat[m java.lang.reflect.Method.invoke ([1mMethod.java:566[m)
+    [1mat[m org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced ([1mLauncher.java:282[m)
+    [1mat[m org.codehaus.plexus.classworlds.launcher.Launcher.launch ([1mLauncher.java:225[m)
+    [1mat[m org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode ([1mLauncher.java:406[m)
+    [1mat[m org.codehaus.plexus.classworlds.launcher.Launcher.main ([1mLauncher.java:347[m)
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;31mBUILD FAILURE[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  11.047 s
+[[1;34mINFO[m] Finished at: 2025-05-28T19:50:50+05:30
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;31mERROR[m] Failed to execute goal [32morg.apache.felix:maven-bundle-plugin:3.2.0:bundle[m [1m(default-bundle)[m on project [36morg.wso2.carbon.identity.oidc.vc.issuance[m: [1;31mInternal error in maven-bundle-plugin[m: Null query -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

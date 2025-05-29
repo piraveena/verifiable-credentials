@@ -2,9 +2,10 @@ package org.wso2.carbon.identity.oidc.vc.issuance.internal;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.osgi.framework.BundleContext;
 import org.osgi.service.component.ComponentContext;
+import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
@@ -13,28 +14,34 @@ import org.wso2.carbon.identity.oidc.vc.issuance.impl.DefaultCredentialIssuerMet
 
 @Component(
         name = "oidc4vci.service.component",
-        immediate = true
+        immediate = true,
+        service = OIDC4VCIServiceComponent.class
 )
 public class OIDC4VCIServiceComponent {
 
-    private static final Log log = LogFactory.getLog(OIDC4VCIServiceComponent.class);
-    private static BundleContext bundleContext = null;
+    private static final Log LOG = LogFactory.getLog(OIDC4VCIServiceComponent.class);
 
-    public static BundleContext getBundleContext() {
-        return bundleContext;
-    }
-
+    @Activate
     protected void activate(ComponentContext context) {
         try {
-            bundleContext = context.getBundleContext();
-            bundleContext.registerService(CredentialIssuerMetadataProvider.class.getName(), DefaultCredentialIssuerMetadataProvider.getInstance(), null);
+
+            LOG.debug("OIDC4VCIServiceComponent is going to get activated.");
+            context.getBundleContext().registerService(CredentialIssuerMetadataProvider.class.getName(),
+                    DefaultCredentialIssuerMetadataProvider.getInstance(), null);
             // exposing server configuration as a service
-            if (log.isDebugEnabled()) {
-                log.debug("Identity OIDC4VCIServiceComponent bundle is activated");
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Identity OIDC4VCIServiceComponent bundle is activated");
             }
         } catch (Throwable e) {
-            log.error("Error while activating OIDC4VCIServiceComponent", e);
+            LOG.error("Error while activating OIDC4VCIServiceComponent", e);
         }
+    }
+
+    @Deactivate
+    protected void deactivate(ComponentContext context) {
+
+        LOG.debug("OIDC4VCIServiceComponent component deactivated.");
+
     }
 
 
@@ -45,10 +52,12 @@ public class OIDC4VCIServiceComponent {
             policy = ReferencePolicy.DYNAMIC,
             unbind = "unsetCredentialIssuerMetadataProvider"
     )
+
+
     protected void setCredentialIssuerMetadataProvider(CredentialIssuerMetadataProvider credentialIssuerMetadataProvider) {
 
-        if (log.isDebugEnabled()) {
-            log.debug(String.format("Adding the CredentialIssuerMetadataProvider Service : %s", credentialIssuerMetadataProvider.getClass().getName()));
+        if (LOG.isDebugEnabled()) {
+            LOG.debug(String.format("Adding the CredentialIssuerMetadataProvider Service : %s", credentialIssuerMetadataProvider.getClass().getName()));
         }
         OIDC4VCIServiceHolder.getInstance().setCredentialIssuerMetadataProvider(credentialIssuerMetadataProvider);
     }
@@ -60,8 +69,8 @@ public class OIDC4VCIServiceComponent {
      */
     protected void unsetCredentialIssuerMetadataProvider(CredentialIssuerMetadataProvider credentialIssuerMetadataProvider) {
 
-        if (log.isDebugEnabled()) {
-            log.debug(String.format("Removing the Credential Issuer MetadataProvider Service : %s", credentialIssuerMetadataProvider.getClass().getName()));
+        if (LOG.isDebugEnabled()) {
+            LOG.debug(String.format("Removing the Credential Issuer MetadataProvider Service : %s", credentialIssuerMetadataProvider.getClass().getName()));
         }
         OIDC4VCIServiceHolder.getInstance().setCredentialIssuerMetadataProvider(null);
     }

@@ -43,7 +43,8 @@ import java.util.Hashtable;
  */
 @Component(
     name = "org.wso2.carbon.identity.oidc4vci.webapp.component",
-    immediate = true
+    immediate = true,
+    service = OIDC4VCIWebappServiceComponent.class
 )
 public class OIDC4VCIWebappServiceComponent {
 
@@ -55,7 +56,8 @@ public class OIDC4VCIWebappServiceComponent {
     @Activate
     protected void activate(ComponentContext componentContext) {
         try {
-            BundleContext bundleContext = componentContext.getBundleContext();
+
+            LOG.debug("OIDC4VCIWebappServiceComponent is going to get activated.");
 
             HttpService httpService = OIDC4VCIWebappServiceHolder.getInstance().getHttpService();
             Servlet metadataEndpointServlet = new ContextPathServletAdaptor(new MetadataEndpointServlet(),
@@ -115,67 +117,6 @@ public class OIDC4VCIWebappServiceComponent {
         LOG.debug("Unsetting CredentialIssuerMetadataProvider: " + metadataProvider.getClass().getName());
         OIDC4VCIWebappServiceHolder.getInstance().setCredentialIssuerMetadataProvider(null);
     }
-
-    /**
-     * Register the metadata endpoint servlet as an OSGi HTTP Whiteboard service
-     */
-//    private void registerMetadataServlet(BundleContext bundleContext) {
-//        try {
-//            MetadataEndpointServlet metadataServlet = new MetadataEndpointServlet();
-//
-//            // Set servlet properties for OSGi HTTP Whiteboard
-//            Hashtable<String, Object> props = new Hashtable<>();
-//
-//            // Primary endpoint for .well-known discovery
-//            props.put("osgi.http.whiteboard.servlet.pattern", new String[]{
-//                "/.well-known/openid-credential-issuer",
-//                "/metadata"
-//            });
-//            props.put("osgi.http.whiteboard.servlet.name", "OIDC4VCIMetadataServlet");
-//            props.put("osgi.http.whiteboard.context.select", "(osgi.http.whiteboard.context.name=default)");
-//            props.put("servlet.init.load-on-startup", "2");
-//
-//            metadataServletRegistration = bundleContext.registerService(
-//                Servlet.class,
-//                metadataServlet,
-//                props
-//            );
-//
-//            LOG.info("Registered OIDC4VCI metadata servlet with patterns: /.well-known/openid-credential-issuer, /metadata");
-//
-//        } catch (Exception e) {
-//            LOG.error("Failed to register metadata servlet", e);
-//            throw new RuntimeException("Failed to register metadata servlet", e);
-//        }
-//    }
-
-    /**
-     * Register the credential endpoint servlet as an OSGi HTTP Whiteboard service
-     */
-//    private void registerCredentialServlet(BundleContext bundleContext) {
-//        try {
-//            CredentialEndpointServlet credentialServlet = new CredentialEndpointServlet();
-//
-//            // Set servlet properties for OSGi HTTP Whiteboard
-//            Hashtable<String, Object> props = new Hashtable<>();
-//            props.put("osgi.http.whiteboard.servlet.pattern", "/credential");
-//            props.put("osgi.http.whiteboard.servlet.name", "OIDC4VCICredentialServlet");
-//            props.put("osgi.http.whiteboard.context.select", "(osgi.http.whiteboard.context.name=default)");
-//            props.put("servlet.init.load-on-startup", "3");
-//
-//            credentialServletRegistration = bundleContext.registerService(
-//                Servlet.class,
-//                credentialServlet,
-//                props
-//            );
-//
-//            LOG.info("Registered OIDC4VCI credential servlet with pattern: /credential");
-//
-//        } catch (Exception e) {
-//            LOG.error("Failed to register credential servlet", e);
-//            throw new RuntimeException("Failed to register credential servlet", e);
-//        }
-//    }
 
     @Reference(
             name = "osgi.http.service",

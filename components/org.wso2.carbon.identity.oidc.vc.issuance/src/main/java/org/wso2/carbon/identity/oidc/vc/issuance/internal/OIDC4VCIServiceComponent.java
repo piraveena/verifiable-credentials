@@ -44,7 +44,6 @@ public class OIDC4VCIServiceComponent {
 
     }
 
-
     @Reference(
             name = "identity.oidcvci.provider",
             service = CredentialIssuerMetadataProvider.class,
@@ -52,8 +51,6 @@ public class OIDC4VCIServiceComponent {
             policy = ReferencePolicy.DYNAMIC,
             unbind = "unsetCredentialIssuerMetadataProvider"
     )
-
-
     protected void setCredentialIssuerMetadataProvider(CredentialIssuerMetadataProvider credentialIssuerMetadataProvider) {
 
         if (LOG.isDebugEnabled()) {
@@ -74,5 +71,4 @@ public class OIDC4VCIServiceComponent {
         }
         OIDC4VCIServiceHolder.getInstance().setCredentialIssuerMetadataProvider(null);
     }
-
 }

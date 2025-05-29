@@ -28,6 +28,7 @@ import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.http.HttpService;
 import org.wso2.carbon.identity.oidc.vc.endpoint.servlet.MetadataEndpointServlet;
+import org.wso2.carbon.identity.oidc.vc.issuance.CredentialIssuerMetadataProvider;
 
 import javax.servlet.Servlet;
 
@@ -52,7 +53,6 @@ public class OIDC4VCIWebappServiceComponent {
             try {
                 httpService.registerServlet("/.well-known/openid-credential-issuer", webFingerServlet, null, null);
             } catch (Exception e) {
-        
                 String errMsg = "Error when registering Web Finger Servlet via the HttpService.";
                 throw new RuntimeException(errMsg, e);
             }
@@ -76,5 +76,27 @@ public class OIDC4VCIWebappServiceComponent {
     protected void unsetHttpService(HttpService httpService) {
 
         DataHolder.getInstance().setHttpService(null);
+    }
+
+    @Reference(
+            name = "identity.oidcvci.provider",
+            service = CredentialIssuerMetadataProvider.class,
+            cardinality = ReferenceCardinality.OPTIONAL,
+            policy = ReferencePolicy.DYNAMIC,
+            unbind = "unsetCredentialIssuerMetadataProvider"
+    )
+    protected void setCredentialIssuerMetadataProvider(CredentialIssuerMetadataProvider credentialIssuerMetadataProvider) {
+
+        DataHolder.getInstance().setCredentialIssuerMetadataProvider(credentialIssuerMetadataProvider);
+    }
+
+    /**
+     * Unsets the Credential Issuer MetadataProvider.
+     *
+     * @param credentialIssuerMetadataProvider   CredentialIssuerMetadataProvider
+     */
+    protected void unsetCredentialIssuerMetadataProvider(CredentialIssuerMetadataProvider credentialIssuerMetadataProvider) {
+
+        DataHolder.getInstance().setCredentialIssuerMetadataProvider(null);
     }
 }

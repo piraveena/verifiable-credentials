@@ -18,6 +18,9 @@ package org.wso2.carbon.identity.oidc.vc.endpoint.internal;/*
 
 
 import org.osgi.service.http.HttpService;
+import org.wso2.carbon.identity.oidc.vc.issuance.CredentialIssuerMetadataException;
+import org.wso2.carbon.identity.oidc.vc.issuance.CredentialIssuerMetadataProvider;
+import org.wso2.carbon.identity.oidc.vc.issuance.impl.DefaultCredentialIssuerMetadataProvider;
 
 /**
  * Push Servlet Data Holder.
@@ -25,6 +28,7 @@ import org.osgi.service.http.HttpService;
 public class DataHolder {
 
     private static final DataHolder instance = new DataHolder();
+    private CredentialIssuerMetadataProvider credentialIssuerMetadataProvider;
 
     private HttpService httpService;
 
@@ -45,5 +49,18 @@ public class DataHolder {
     public void setHttpService(HttpService httpService) {
 
         this.httpService = httpService;
+    }
+
+    public void setCredentialIssuerMetadataProvider(CredentialIssuerMetadataProvider credentialIssuerMetadataProvider) {
+
+        this.credentialIssuerMetadataProvider = credentialIssuerMetadataProvider;
+    }
+
+    public CredentialIssuerMetadataProvider getCredentialIssuerMetadataProvider() throws CredentialIssuerMetadataException {
+
+        if (credentialIssuerMetadataProvider == null) {
+            credentialIssuerMetadataProvider = DefaultCredentialIssuerMetadataProvider.getInstance();
+        }
+        return credentialIssuerMetadataProvider;
     }
 }

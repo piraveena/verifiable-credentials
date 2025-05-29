@@ -127,6 +127,11 @@
                 <artifactId>org.wso2.carbon.identity.oidc.vc.endpoint</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${com.google.code.gson.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -357,6 +362,9 @@
 
         <!--Pax logging dependency versions -->
         <pax.logging.api.version>1.10.1</pax.logging.api.version>
+
+        <com.google.code.gson.version>2.9.0</com.google.code.gson.version>
+        <com.google.code.gson.osgi.version.range>[2.6.2,3.0.0)</com.google.code.gson.osgi.version.range>
 
         <!-- Dependency versions -->
         <identity.inbound.auth.oauth.version>7.0.256</identity.inbound.auth.oauth.version>
